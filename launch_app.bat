@@ -2,11 +2,11 @@
 REM ==========================================================
 REM  Launch the Streamlit app locally (browser opens automatically)
 REM ==========================================================
-title Project Scaffolding - app
+title PVGIS House Estimator - app
 cd /d "%~dp0"
 
 echo ============================================================
-echo   Project Scaffolding - Streamlit app (local)
+echo   PVGIS House Estimator - Streamlit app (local)
 echo   URL will print below (default http://localhost:8501)
 echo ============================================================
 echo.

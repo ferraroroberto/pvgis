@@ -4,11 +4,11 @@ REM  Launch Streamlit + expose it via Cloudflare Tunnel
 REM  Share the printed https:// URL with anyone.
 REM ==========================================================
 setlocal
-title Project Scaffolding - server (Cloudflare Tunnel)
+title PVGIS House Estimator - server (Cloudflare Tunnel)
 cd /d "%~dp0"
 
 echo ============================================================
-echo   Project Scaffolding - Streamlit + Cloudflare Tunnel
+echo   PVGIS House Estimator - Streamlit + Cloudflare Tunnel
 echo   Public https:// URL will print below. Share it to expose
 echo   this app. Ctrl+C to stop the tunnel.
 echo ============================================================
@@ -35,7 +35,7 @@ if errorlevel 1 (
 )
 
 echo [1/2] Starting Streamlit on port %PORT% ...
-start "scaffolding-streamlit" /B ".venv\Scripts\python.exe" -m streamlit run "app\app.py" ^
+start "pvgis-streamlit" /B ".venv\Scripts\python.exe" -m streamlit run "app\app.py" ^
     --server.port %PORT% ^
     --server.headless true ^
     --browser.gatherUsageStats=false
@@ -49,7 +49,7 @@ echo   Press Ctrl+C to stop the tunnel, then close this window.
 echo.
 cloudflared tunnel --url http://localhost:%PORT% 2>&1 | findstr /V /C:"Cannot determine default origin certificate path"
 
-taskkill /fi "windowtitle eq scaffolding-streamlit" /f >nul 2>&1
+taskkill /fi "windowtitle eq pvgis-streamlit" /f >nul 2>&1
 echo.
 echo Server stopped.
 pause
