@@ -9,7 +9,7 @@ Estimate the solar-PV output of a house using the EU Joint Research Centre's **[
 - **`app/`** — Streamlit UI: a `PV Estimator` view (location + system form → yearly/monthly charts) and a welcome page.
 - **`src/pvgis.py`** — typed client for the PVGIS `PVcalc` endpoint; parses totals and the 12-month profile into dataclasses.
 - **`src/config.py`** — env-driven settings loaded from `.env`; your house's coordinates live there and stay out of git.
-- An **elegant logger** (`src/logger.py`) writing to terminal (color-coded), a rotating file at `data/logs/app.log`, and a live panel in the UI — all from one `log.info(...)`.
+- An **elegant logger** (`src/logger.py`) writing to terminal (color-coded), a rotating file at `data/logs/app.log`, and an in-memory ring buffer any view can stream live via `stream_to_streamlit()` — all from one `log.info(...)`.
 - Dark theme by default (`app/.streamlit/config.toml`) + a runtime light-mode toggle.
 - `launch_app.{bat,sh}` (local) and `launch_server.{bat,sh}` (local + Cloudflare Tunnel for sharing).
 
